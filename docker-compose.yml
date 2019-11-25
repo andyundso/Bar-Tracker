@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  database:
+    environment:
+      POSTGRES_DB: bars-tracker
+    image: postgres:11
+    restart: always
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
