@@ -1,14 +1,10 @@
 import * as Koa from 'koa';
-import * as Router from 'koa-router';
+import {barController} from "./controllers/bar.controller";
 
 const app = new Koa();
-const router = new Router();
 
-router.get('/*', async (ctx) => {
-    ctx.body = 'Hello World!';
-});
-
-app.use(router.routes());
+app.use(barController.routes);
+app.use(barController.allowedMethods);
 
 app.listen(3000);
 
