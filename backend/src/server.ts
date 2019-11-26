@@ -2,7 +2,7 @@ import * as Koa from 'koa';
 import {barController} from "./controllers/bar.controller";
 import {databaseConnection} from "./configuration/database";
 
-const PORT: number = Number(process.env.PORT) || 3000;
+const PORT: number = Number(process.env.PORT) || 3001;
 
 const app = new Koa();
 
