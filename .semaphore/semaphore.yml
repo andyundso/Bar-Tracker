@@ -22,6 +22,8 @@ blocks:
     dependencies:
       - Backend - Install dependencies
     task:
+      secrets:
+        - name: bar-tracker
       jobs:
         - name: Run Jest
           env_vars:
@@ -34,5 +36,9 @@ blocks:
             - createdb bars-tracker-test -U $DATABASE_POSTGRESQL_USERNAME -h 127.0.0.1
             - cd backend
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH-,node-modules-master-
+            - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            - chmod +x ./cc-test-reporter
+            - ./cc-test-reporter before-build
             - yarn install
             - yarn run test
+            - ./cc-test-reporter after-build
