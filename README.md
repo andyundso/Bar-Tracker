@@ -1,4 +1,9 @@
 # Bar-Tracker
+
+[![CI Status](https://andyundso.semaphoreci.com/badges/Bar-Tracker.svg)](https://andyundso.semaphoreci.com/projects/Bar-Tracker)
+[![Maintainability](https://api.codeclimate.com/v1/badges/291f35be42ae98a1cc76/maintainability)](https://codeclimate.com/github/andyundso/Bar-Tracker/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/291f35be42ae98a1cc76/test_coverage)](https://codeclimate.com/github/andyundso/Bar-Tracker/test_coverage)
+
 One day, this project should support simple user authentication and the ability to leave a review for a bar for 
 your future self.
 
