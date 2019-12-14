@@ -27,6 +27,12 @@ yarn install
 yarn run watch-server
 ````
 
+* Tests can be run with Jest:
+
+````
+yarn run test
+````
+
 ## Frontend
 Since I wanted to try out the React Concurrent Mode features, the frontend currently uses the experimental build of 
 React. Means, type-safety is not given and bugs could happen (and incompatibility with other libraries). But performance
