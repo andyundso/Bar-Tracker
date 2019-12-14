@@ -1,0 +1,38 @@
+version: v1.0
+name: Bar-Tracker
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Backend - Install dependencies
+    dependencies: []
+    task:
+      jobs:
+        - name: yarn install
+          commands:
+            - sem-version node 10
+            - checkout
+            - cd backend
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH-,node-modules-master-
+            - yarn install
+            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) node_modules
+
+  - name: Backend - Run tests
+    dependencies:
+      - Backend - Install dependencies
+    task:
+      jobs:
+        - name: Run Jest
+          env_vars:
+            - name: DATABASE_POSTGRESQL_USERNAME
+              value: postgres
+          commands:
+            - sem-version node 10
+            - sem-service start postgres 11.6
+            - checkout
+            - createdb bars-tracker-test -U $DATABASE_POSTGRESQL_USERNAME -h 127.0.0.1
+            - cd backend
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH-,node-modules-master-
+            - yarn install
+            - yarn run test
