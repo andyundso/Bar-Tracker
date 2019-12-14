@@ -24,7 +24,8 @@ router.get('/:bar_id', async (ctx: Koa.Context) => {
 });
 
 router.post('/', async (ctx: Koa.Context) => {
-    const bar: Bar = {...ctx.request.body};
+    const bar = new Bar();
+    Object.assign(bar, {...ctx.request.body});
     await bar.save();
 
     ctx.body = bar;
