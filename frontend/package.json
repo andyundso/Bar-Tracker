@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "pigeon-maps": "^0.14.0",
+    "pigeon-marker": "^0.3.4",
     "react": "^0.0.0-experimental-b53ea6ca0",
     "react-dom": "^0.0.0-experimental-b53ea6ca0",
     "react-scripts": "3.3.0",
