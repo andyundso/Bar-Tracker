@@ -26,6 +26,12 @@ docker-compose up -d
 yarn install
 ````
 
+* There is a small set of seeds available. WARNING: The seeds will delete any existing data in the database!
+
+````
+yarn run db:fixtures:load
+````
+
 * Fire up the development server. It starts itself on port 3001.
 
 ````

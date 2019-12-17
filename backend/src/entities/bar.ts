@@ -1,4 +1,5 @@
 import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {IPoint} from "../../types";
 
 @Entity()
 export default class Bar extends BaseEntity {

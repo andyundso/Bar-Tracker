@@ -32,6 +32,7 @@
     "typescript": "^3.7.3"
   },
   "scripts": {
+    "db:fixtures:load": "ts-node src/configuration/seeds.ts",
     "test": "DB_NAME=bars-tracker-test jest --detectOpenHandles --forceExit --collectCoverage",
     "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/development.ts"
   },
