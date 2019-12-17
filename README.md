@@ -39,11 +39,7 @@ yarn run test
 ````
 
 ## Frontend
-Since I wanted to try out the React Concurrent Mode features, the frontend currently uses the experimental build of 
-React. Means, type-safety is not given and bugs could happen (and incompatibility with other libraries). But performance
-should be great?
-
-To install it, run yarn install and startup the dev server afterwards.
+Install the dependencies and run the server.
 
 ````
 yarn install
