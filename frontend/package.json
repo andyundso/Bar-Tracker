@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "pigeon-maps": "^0.14.0",
+    "pigeon-marker": "^0.3.4",
     "react": "^0.0.0-experimental-b53ea6ca0",
     "react-dom": "^0.0.0-experimental-b53ea6ca0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "tailwindcss": "^1.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "yarn run tailwind:css && react-scripts start",
+    "build": "yarn run tailwind:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tailwind:css": "tailwind build src/tailwind.css -c tailwind.config.js -o src/output.css"
   },
   "eslintConfig": {
     "extends": "react-app"
