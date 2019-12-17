@@ -1,10 +1,13 @@
 import React from 'react';
-import {H1} from "./layout/Typography";
+import Map from "pigeon-maps";
+import Marker from "pigeon-marker";
 
 function App() {
   return (
-    <div className={"container min-h-screen w-screen"}>
-      <H1>Welcome to Tailwind</H1>
+    <div className={"container h-screen w-full max-w-full"}>
+      <Map center={[50.879, 4.6997]} zoom={12}>
+        <Marker anchor={[50.874, 4.6947]} payload={1} onClick={({ event, anchor, payload }) => {}} />
+      </Map>
     </div>
   );
 }
