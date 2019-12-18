@@ -1,7 +1,7 @@
-import React, {useEffect, useState, useMemo} from "react"
+import React, {useEffect, useMemo, useState} from "react"
 import Map from "pigeon-maps";
-import Marker from "pigeon-marker";
 import {arrayMin} from "./helpers/helperFunctions";
+import {MarkerWithPopup} from "./map/MarkerWithPopup";
 
 export const BarMap = () => {
   const [bars, setBars] = useState([]);
@@ -31,7 +31,10 @@ export const BarMap = () => {
 
   return (
     <Map center={[mapCenter.x, mapCenter.y]} zoom={12}>
-      {bars.map(bar => <Marker key={bar.id} anchor={[bar.coordinates.x, bar.coordinates.y]}/>)}
+      {bars.map(bar => (
+        <MarkerWithPopup key={bar.id} anchor={[bar.coordinates.x, bar.coordinates.y]} description={bar.name}/>
+      ))
+      }
     </Map>
   )
 };
