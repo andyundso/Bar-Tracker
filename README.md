@@ -26,6 +26,12 @@ docker-compose up -d
 yarn install
 ````
 
+* There is a small set of seeds available. WARNING: The seeds will delete any existing data in the database!
+
+````
+yarn run db:fixtures:load
+````
+
 * Fire up the development server. It starts itself on port 3001.
 
 ````
@@ -39,11 +45,7 @@ yarn run test
 ````
 
 ## Frontend
-Since I wanted to try out the React Concurrent Mode features, the frontend currently uses the experimental build of 
-React. Means, type-safety is not given and bugs could happen (and incompatibility with other libraries). But performance
-should be great?
-
-To install it, run yarn install and startup the dev server afterwards.
+Install the dependencies and run the server.
 
 ````
 yarn install
