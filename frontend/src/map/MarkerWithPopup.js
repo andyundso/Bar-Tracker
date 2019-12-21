@@ -10,7 +10,12 @@ const Popup = (props) => {
 
   return (
     <div style={style} className={"px-6 py-4 shadow-lg rounded bg-white"}>
-      <p className={"text-gray-700 text-base font-bold"}>{props.description}</p>
+      <p className={"text-gray-700 text-base font-bold"}>{props.bar.name}</p>
+      <ul className="list-disc">
+        <li>Visits: {props.bar.visits.length}</li>
+        <li>Last visit: {props.bar.visits[0].date}</li>
+      </ul>
+
     </div>
 
   )
@@ -22,11 +27,11 @@ export const MarkerWithPopup = (props) => {
 
   return (
     <>
-      <Popup top={props.top} left={props.left} description={props.description} visible={popupVisible}/>
+      <Popup top={props.top} left={props.left} bar={props.bar} visible={popupVisible}/>
       <Marker
         top={props.top}
         left={props.left}
-        anchor={props.anchor}
+        anchor={[props.bar.coordinates.x, props.bar.coordinates.y]}
         onMouseOver={() => {
           setPopupVisible(true)
         }}

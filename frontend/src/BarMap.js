@@ -32,7 +32,7 @@ export const BarMap = () => {
   return (
     <Map center={[mapCenter.x, mapCenter.y]} zoom={12}>
       {bars.map(bar => (
-        <MarkerWithPopup key={bar.id} anchor={[bar.coordinates.x, bar.coordinates.y]} description={bar.name}/>
+        <MarkerWithPopup key={bar.id} anchor={[bar.coordinates.x, bar.coordinates.y]} bar={bar}/>
       ))
       }
     </Map>
