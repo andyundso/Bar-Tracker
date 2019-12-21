@@ -10,11 +10,11 @@ const routerOpts: Router.IRouterOptions = {
 const router: Router = new Router(routerOpts);
 
 router.get('/', async (ctx: Koa.Context) => {
-    ctx.body = await Bar.find()
+    ctx.body = await Bar.find({ relations: ["visits"] })
 });
 
 router.get('/:bar_id', async (ctx: Koa.Context) => {
-    const bar: Bar | undefined = await Bar.findOne(ctx.params.bar_id);
+    const bar: Bar | undefined = await Bar.findOne(ctx.params.bar_id, { relations: ["visits"] });
 
     if (!bar) {
         ctx.throw(constants.HTTP_STATUS_NO_CONTENT)
@@ -44,7 +44,7 @@ router.delete('/:bar_id', async (ctx: Koa.Context) => {
 });
 
 router.patch('/:bar_id', async (ctx: Koa.Context) => {
-    const bar: Bar | undefined = await Bar.findOne(ctx.params.bar_id);
+    const bar: Bar | undefined = await Bar.findOne(ctx.params.bar_id, { relations: ["visits"] });
 
     if (bar) {
         const updatedBar: Bar = Object.assign(bar, ctx.request.body);
