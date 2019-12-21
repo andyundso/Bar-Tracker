@@ -1,5 +1,6 @@
-import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {IPoint} from "../../types";
+import Visit from "./visit";
 
 @Entity()
 export default class Bar extends BaseEntity {
@@ -18,5 +19,8 @@ export default class Bar extends BaseEntity {
             to: v => `${v.x},${v.y}`, // { x: 1, y: 2 } -> '1,2'
         },
     })
-    public coordinates: IPoint;
+    coordinates: IPoint;
+
+    @OneToMany(type => Visit, visit => visit.bar)
+    visits: Visit[];
 }
