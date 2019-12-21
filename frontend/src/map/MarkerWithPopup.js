@@ -1,7 +1,17 @@
 import Marker from "pigeon-marker";
-import React from "react";
+import React, {useMemo} from "react";
 
 const Popup = (props) => {
+  const calculateMaxDate = (visits) => {
+    return visits.map(visit => visit.date).sort().reverse()[0]
+  };
+
+  const maxDate = useMemo(
+    () => {
+      return calculateMaxDate(props.bar.visits)
+    }, [props.bar.visits]
+  );
+
   const style = {
     position: 'absolute',
     transform: `translate(${props.left}px, ${props.top}px)`,
@@ -13,7 +23,7 @@ const Popup = (props) => {
       <p className={"text-gray-700 text-base font-bold"}>{props.bar.name}</p>
       <ul className="list-disc">
         <li>Visits: {props.bar.visits.length}</li>
-        <li>Last visit: {props.bar.visits[0].date}</li>
+        <li>Last visit: {maxDate}</li>
       </ul>
 
     </div>
