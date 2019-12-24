@@ -13,7 +13,7 @@
     "koa-router": "^7.4.0",
     "pg": "^7.15.1",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.21"
+    "typeorm": "^0.2.22"
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.7",
