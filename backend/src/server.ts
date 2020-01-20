@@ -3,6 +3,7 @@ import {barController} from "./controllers/bar.controller";
 import * as bodyParser from "koa-bodyparser";
 import * as CORS from "@koa/cors"
 
+require('dotenv').config();
 const innerApp = new Koa();
 
 innerApp.use(bodyParser());

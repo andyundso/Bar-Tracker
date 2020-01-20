@@ -32,6 +32,12 @@ yarn install
 yarn run db:fixtures:load
 ````
 
+* Make sure to add a file named `.env` and add your Mapbox API key there:
+
+````
+MAP_BOX_API_KEY=soomekeysandstuff
+````
+
 * Fire up the development server. It starts itself on port 3001.
 
 ````
