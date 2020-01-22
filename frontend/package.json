@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "pigeon-maps": "^0.14.0",
     "pigeon-marker": "^0.3.4",
     "react": "^16.12",
