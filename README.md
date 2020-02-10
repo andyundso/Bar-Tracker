@@ -44,9 +44,10 @@ MAP_BOX_API_KEY=soomekeysandstuff
 yarn run watch-server
 ````
 
-* Tests can be run with Jest:
+* Tests can be run with Jest, but you have to manually create the test db first.
 
 ````
+createdb -h 127.0.0.1 bars-tracker-test -U postgres
 yarn run test
 ````
 
