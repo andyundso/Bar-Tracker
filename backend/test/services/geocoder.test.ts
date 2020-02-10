@@ -1,5 +1,6 @@
 import {Geocoder} from "../../src/services/geocoder";
 import axios from 'axios';
+import {importDotEnv} from "../helpers/helpers";
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -9,7 +10,7 @@ test("Initialize Class without Api token", () => {
 });
 
 test("Should return an empty array if no hits were found", () => {
-    require('dotenv').config();
+    importDotEnv();
 
     mockedAxios.get.mockImplementation(() =>
         Promise.resolve({
@@ -25,7 +26,7 @@ test("Should return an empty array if no hits were found", () => {
 });
 
 test("Should return an array if API hits something", () => {
-    require('dotenv').config();
+    importDotEnv();
 
     mockedAxios.get.mockImplementation(() =>
         Promise.resolve({

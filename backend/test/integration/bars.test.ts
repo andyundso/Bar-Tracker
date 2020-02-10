@@ -4,7 +4,7 @@ import {app} from '../../src/server'
 import {databaseConnection} from "../../src/configuration/database";
 import Bar from "../../src/entities/bar";
 import barFixture from "../fixtures/bar.fixture";
-import {clearDb} from "../helpers/helpers";
+import {clearDb, importDotEnv} from "../helpers/helpers";
 import {Geocoder} from "../../src/services/geocoder";
 
 // Require supertest
@@ -92,8 +92,9 @@ test("update a bar", async () => {
 });
 
 test("should call geocoder service", async () => {
-    jest.mock("../../src/services/geocoder");
+    importDotEnv();
 
+    jest.mock("../../src/services/geocoder");
     const mockedGeocoder = Geocoder as jest.Mocked<typeof Geocoder>;
     const mockedGeocodeAddress = jest.fn();
     mockedGeocoder.prototype.geocodeAddress = mockedGeocodeAddress;

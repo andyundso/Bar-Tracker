@@ -9,3 +9,7 @@ export const clearDb = async () => {
         await repository.query(`DELETE FROM ${entity.tableName};`);
     }
 };
+
+export const importDotEnv = () => {
+    require('dotenv').config({path: '.env.test'});
+};
