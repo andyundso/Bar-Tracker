@@ -4,7 +4,8 @@ import {app} from '../../src/server'
 import {databaseConnection} from "../../src/configuration/database";
 import Bar from "../../src/entities/bar";
 import barFixture from "../fixtures/bar.fixture";
-import {clearDb} from "../helpers/helpers";
+import {clearDb, importDotEnv} from "../helpers/helpers";
+import {Geocoder} from "../../src/services/geocoder";
 
 // Require supertest
 const request = require('supertest');
@@ -90,4 +91,21 @@ test("update a bar", async () => {
     expect(updatedBar.coordinates).toEqual({x: 3, y: 4});
 });
 
+test("should call geocoder service", async () => {
+    importDotEnv();
 
+    jest.mock("../../src/services/geocoder");
+    const mockedGeocoder = Geocoder as jest.Mocked<typeof Geocoder>;
+    const mockedGeocodeAddress = jest.fn();
+    mockedGeocoder.prototype.geocodeAddress = mockedGeocodeAddress;
+    mockedGeocodeAddress.mockImplementation(() => Promise.resolve([]));
+
+    const response = await request(server)
+        .get("/bars/find/")
+        .send({
+            city: "Wabbit Hole",
+        });
+
+    expect(response.status).toEqual(200);
+    expect(response.body).toEqual([]);
+});
