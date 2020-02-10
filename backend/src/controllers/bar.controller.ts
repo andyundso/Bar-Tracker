@@ -2,12 +2,18 @@ import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import Bar from "../entities/bar";
 import {constants} from "http2";
+import {Geocoder} from "../services/geocoder";
 
 const routerOpts: Router.IRouterOptions = {
     prefix: '/bars',
 };
 
 const router: Router = new Router(routerOpts);
+
+router.get('/find', async (ctx: Koa.Context) => {
+    const geocoder = new Geocoder();
+    ctx.body = await geocoder.geocodeAddress({...ctx.request.body});
+});
 
 router.get('/', async (ctx: Koa.Context) => {
     ctx.body = await Bar.find({ relations: ["visits"] })
