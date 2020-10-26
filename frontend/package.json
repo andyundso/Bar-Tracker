@@ -7,7 +7,7 @@
     "pigeon-maps": "^0.16.1",
     "pigeon-marker": "^0.3.4",
     "react": "^16.14",
-    "react-dom": "^16.13",
+    "react-dom": "^16.14",
     "react-scripts": "3.4.3",
     "tailwindcss": "^1.9.4"
   },
