@@ -28,7 +28,7 @@
     "@types/node": "^12",
     "@types/supertest": "^2.0.10",
     "jest": "^25.5.4",
-    "nodemon": "^2.0.5",
+    "nodemon": "^2.0.6",
     "supertest": "^5.0.0",
     "ts-jest": "^25.5.1",
     "ts-node": "^9.0.0",
