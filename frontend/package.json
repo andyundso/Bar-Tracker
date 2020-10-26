@@ -9,7 +9,7 @@
     "react": "^16.14",
     "react-dom": "^16.14",
     "react-scripts": "3.4.3",
-    "tailwindcss": "^1.9.4"
+    "tailwindcss": "^1.9.6"
   },
   "scripts": {
     "start": "yarn run tailwind:css && react-scripts start",
