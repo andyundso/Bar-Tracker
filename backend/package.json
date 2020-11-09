@@ -29,7 +29,7 @@
     "@types/supertest": "^2.0.10",
     "jest": "^25.5.4",
     "nodemon": "^2.0.6",
-    "supertest": "^5.0.0",
+    "supertest": "^6.0.1",
     "ts-jest": "^25.5.1",
     "ts-node": "^9.0.0",
     "tslint": "^5.20.1",
