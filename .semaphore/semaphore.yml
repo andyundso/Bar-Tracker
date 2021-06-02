@@ -11,7 +11,6 @@ blocks:
       jobs:
         - name: yarn install
           commands:
-            - sem-version node 10
             - checkout
             - cd backend
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH-,node-modules-master-
@@ -30,7 +29,6 @@ blocks:
             - name: DATABASE_POSTGRESQL_USERNAME
               value: postgres
           commands:
-            - sem-version node 10
             - sem-service start postgres 11.6
             - checkout
             - createdb bars-tracker-test -U $DATABASE_POSTGRESQL_USERNAME -h 127.0.0.1
