@@ -1,9 +1,10 @@
-version: '3'
+version: "3"
 
 services:
   database:
     environment:
       POSTGRES_DB: bars-tracker
+      POSTGRES_PASSWORD: mysecretpassword
     image: postgres:11
     restart: always
     expose:
