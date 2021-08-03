@@ -38,5 +38,5 @@ blocks:
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
             - yarn install
-            - yarn run test
+            - DB_PASSWORD="" yarn run test
             - ./cc-test-reporter after-build
