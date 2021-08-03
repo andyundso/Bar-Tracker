@@ -12,7 +12,7 @@ const router: Router = new Router(routerOpts);
 
 router.get('/find', async (ctx: Koa.Context) => {
     const geocoder = new Geocoder();
-    ctx.body = await geocoder.geocodeAddress({...ctx.request.body});
+    ctx.body = await geocoder.geocodeAddress({...ctx.request.body as {}});
 });
 
 router.get('/', async (ctx: Koa.Context) => {
@@ -31,7 +31,7 @@ router.get('/:bar_id', async (ctx: Koa.Context) => {
 
 router.post('/', async (ctx: Koa.Context) => {
     const bar = new Bar();
-    Object.assign(bar, {...ctx.request.body});
+    Object.assign(bar, {...ctx.request.body as {}});
     await bar.save();
 
     ctx.body = bar;
