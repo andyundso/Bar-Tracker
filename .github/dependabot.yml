@@ -6,30 +6,9 @@ updates:
     interval: weekly
     time: "04:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: "@types/node"
-    versions:
-    - ">= 13.a, < 14"
-  - dependency-name: "@types/node"
-    versions:
-    - ">= 14.a, < 15"
-  - dependency-name: "@types/node"
-    versions:
-    - 12.20.10
-    - 12.20.6
-  - dependency-name: "@types/jest"
-    versions:
-    - 26.0.21
-  - dependency-name: supertest
-    versions:
-    - 6.1.1
 - package-ecosystem: npm
   directory: "/frontend"
   schedule:
     interval: weekly
     time: "04:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: react-scripts
-    versions:
-    - 4.0.2
